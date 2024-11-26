@@ -196,7 +196,9 @@
 "hyprland/workspaces": {
         "all-outputs": false,
         "disable-scroll": true,
-        "format": "{name}"
+        "format": "{name}",
+        "show-special": true,
+        "special-visible-only": true
     },
 
 "tray": {

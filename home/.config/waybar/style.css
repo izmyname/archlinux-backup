@@ -266,6 +266,17 @@ window#waybar.fullscreen #window {
     text-shadow: none;
 }
 
+#workspaces button.special {
+    border-radius: 10px;
+    margin-left:5px;
+    margin-top: 2px;    
+    margin-bottom: 2px; 
+    border-color: @text;
+    color: @base;
+    background-color: @lavender; 
+    text-shadow: none;
+}
+
 #custom-arch {
   color: @blue;
 }
