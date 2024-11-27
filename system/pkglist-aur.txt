@@ -11,5 +11,6 @@ mullvad-vpn-bin
 nnn-git
 tty-clock
 uwsm
+wlogout
 xdg-desktop-portal-hyprland-git
 yay
