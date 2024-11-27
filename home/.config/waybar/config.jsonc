@@ -21,8 +21,7 @@
         "hyprland/language",
         "wireplumber",
 	      "group/indicators",
-        "group/hardware",
-        "custom/power"
+        "group/hardware"
             ],
 
     // -------------------------------------------------------------------------
@@ -221,19 +220,5 @@
      "format-alt-click": "click-left",
      "tooltip": true,
      "tooltip-format": "Expand tray"
-},
-
-    "custom/power": {
-        "format" : "⏻",
-		"tooltip": false,
-		"menu": "on-click",
-		"menu-file": "$HOME/.config/waybar/power_menu.xml",
-		"menu-actions": {
-      "lock": "loginctl lock-session",
-      "logout": "loginctl terminate-user '' ",
-			"shutdown": "systemctl poweroff",
-			"reboot": "systemctl reboot",
-			"suspend": "systemctl suspend",
-		},
 },
 }

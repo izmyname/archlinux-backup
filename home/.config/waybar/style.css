@@ -281,10 +281,6 @@ window#waybar.fullscreen #window {
   color: @blue;
 }
 
-#custom-power {
-  color: @maroon;
-}
-
 /*tooltips styling*/
 tooltip {
      border-radius: 10px;
