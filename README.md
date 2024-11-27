@@ -2,9 +2,8 @@
   <summary>Screenshots</summary>
   
 ![desktop](https://github.com/izmyname/archlinux-backup/blob/main/screenshots/1.png?raw=true "desktop")
-![calendar](https://github.com/izmyname/archlinux-backup/blob/main/screenshots/2.png?raw=true "calendar")
-![windows](https://github.com/izmyname/archlinux-backup/blob/main/screenshots/3.png?raw=true "windows")
-![launcher](https://github.com/izmyname/archlinux-backup/blob/main/screenshots/4.png?raw=true "launcher")
+![windows](https://github.com/izmyname/archlinux-backup/blob/main/screenshots/2.png?raw=true "windows")
+![fullscreen-dmenu-logout](https://github.com/izmyname/archlinux-backup/blob/main/screenshots/3.png?raw=true "fullscreen-dmenu-logout")
 
 </details>
 
