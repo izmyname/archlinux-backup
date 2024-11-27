@@ -1,50 +1,40 @@
 {
-    // -------------------------------------------------------------------------
     // Global configuration
-    // -------------------------------------------------------------------------
 
     "layer": "top",
     "position": "top",
-    "height": 45,
+    "height": 50,
+    "fixed-center": false,
     "margin-left": 20,
     "margin-right": 10,
-    "modules-left": [
-        "custom/arch",
-        "hyprland/workspaces",
-        "hyprland/window"
-            ],
-    "modules-center": [
-        "clock"
-    ],
-    "modules-right": [
-        "group/tray-drawer",
-        "hyprland/language",
-        "wireplumber",
-	      "group/indicators",
-        "group/hardware"
-            ],
+    "modules-left": ["custom/arch", "hyprland/workspaces", "hyprland/window"],
+    "modules-right": ["group/tray-drawer", "hyprland/language", "wireplumber", "group/connect", "group/hardware2", "group/hardware", "group/indicators", "group/time"],
 
-    // -------------------------------------------------------------------------
     // Module Groups
-    // -------------------------------------------------------------------------
+
+"group/connect":{
+	"orientation": "inherit",
+    "modules": ["bluetooth", "network"]
+	},
+
+"group/time": {
+	"orientation": "vertical",
+		"modules": ["clock#time", "clock#date"]
+	},
 
 "group/hardware": {
-	"orientation": "inherit",
-		"modules": [
-			"memory",
-			"cpu",
-			"disk"
-		]
+	"orientation": "vertical",
+		"modules": ["memory", "cpu"]
+	},
+
+"group/hardware2": {
+	"orientation": "vertical",
+		"modules": ["disk", "temperature"]
 	},
 
 "group/indicators":{
-	"orientation": "inherit",
-    "modules": [
-	   "bluetooth",
-     "network",
-	   "backlight",
-     "battery"
-	     ]
+	"orientation": "vertical",
+    "modules": ["backlight", "battery"]
 	},
 
  "group/tray-drawer":{
@@ -55,15 +45,10 @@
         "transition-left-to-right": false,
         "click-to-reveal": true
     },
-    "modules": [
-       "custom/hide-tray", 
-       "tray"
-    ],
+    "modules": ["custom/hide-tray", "tray"],
   },
 
-    // -------------------------------------------------------------------------
     // Modules
-    // -------------------------------------------------------------------------
 
 "hyprland/language": {
     "format": " {}",
@@ -74,7 +59,6 @@
 },
 
 "bluetooth": {
-	// "controller": "controller1", // specify the alias of the controller if there are more than 1 on the system
   	"format": "󰂯",
 	  "format-disabled": "", // an empty format will hide the module
   	"format-connected": "",
@@ -85,7 +69,7 @@
 
 "disk": {
     "interval": 5,
-    "format": " ",
+    "format": " {percentage_used}%",
     "path": "/",
     "states": {
         "half": 50,
@@ -96,8 +80,8 @@
 
 "backlight": {
     "device": "intel_backlight",
-    "format": "{icon}",
-    "format-icons": [" ", " ", " ", " ", " ", " ", " ", " ", " "],
+    "format": "{icon} {percent}%",
+    "format-icons": ["", "", "", "", "", "", "", "", ""],
     "states": {
        "max": 100,
        "medium": 60
@@ -112,43 +96,29 @@
             "warning": 30,
             "critical": 15
         },
-        "format": "󱐋{icon}", // Icon: bolt
-        "format-discharging": "{icon}",
-        "format-full": "󰂄",
+        "format": "󱐋{icon} {capacity}%", // Icon: bolt
+        "format-discharging": "{icon} {capacity}%",
+        "format-full": "󰂄 {capacity}%",
         "format-icons": [ "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹" ],
         "tooltip": true,
         "tooltip-format": "{capacity}%, {timeTo}"
     },
 
-"clock": {
+"clock#time": {
         "interval": 1,
         "format": " {:%H:%M}",
-        "format-alt": " {:L%a %d %b}", // Icon: calendar-alt 
-        "format-alt-click": "click-left",
-        "tooltip": true,
-       "tooltip-format": "<tt><span size='12pt'>{calendar}</span></tt>",
-       "calendar": {
-         "mode"          : "month",
-         "mode-mon-col"  : 3,
-         "weeks-pos"     : "right",
-         "on-scroll"     : 1,
-         "format": {
-         "months":     "<span color='#cdd6f4'><b>{}</b></span>",
-         "days":       "<span color='#b4befe'><b>{}</b></span>",
-         "weeks":      "<span color='#a6e3a1'><b>W{}</b></span>",
-         "weekdays":   "<span color='#fab387'><b>{}</b></span>",
-         "today":      "<span color='#f38ba8'><b><u>{}</u></b></span>"
-          }
+        "tooltip": false
     },
-        "actions":  {
-         "on-click-right": "mode"
-          }
-    
+
+"clock#date": {
+        "interval": 1,
+        "format": " {:L%a %d %b}",
+        "tooltip": false,
     },
 
 "cpu": {
         "interval": 5,
-        "format": "", // Icon: microchip
+        "format": " {usage}%",
         "states": {
           "loaded": 40,
           "warning": 70,
@@ -158,7 +128,7 @@
 
 "memory": {
         "interval": 5,
-        "format": " ", // Icon: memory
+        "format": " {}%",
         "states": {
           "loaded": 40,
           "warning": 70,
@@ -195,7 +165,7 @@
     },
 
 "wireplumber": {
-    "format": "{icon}",
+    "format": "{icon} {volume}%",
     "format-muted": "",
     "states": {
         "loud": 70,
@@ -221,4 +191,12 @@
      "tooltip": true,
      "tooltip-format": "Expand tray"
 },
+
+"temperature": {
+      "critical-threshold": 80,
+      "interval": 5,
+      "format": "{icon} {temperatureC}°C",
+      "hwmon-path": "/sys/devices/platform/coretemp.0/hwmon/hwmon5/temp1_input",
+      "format-icons": [ "",  "",  "",  "",  ""]
+  },
 }

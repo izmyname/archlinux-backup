@@ -54,8 +54,10 @@
 #launch,
 #custom-power,
 #hardware,
+#hardware2,
 #indicators,
-#clock,
+#connect,
+#time,
 #window,
 #wireplumber,
 #workspaces,
@@ -73,9 +75,22 @@
 /* -----------------------------------------------------------------------------
  * Module styles
  * -------------------------------------------------------------------------- */
+#time {
+      font-size: 14px;
+}
+
+#indicators {
+      font-size: 14px;
+}
 
 #hardware {
+      font-size:14px;
       color: @pink;
+}
+
+#hardware2 {
+      font-size:14px;
+      color: @mauve;
 }
 
 #backlight {
@@ -174,8 +189,17 @@
  color: @teal;
 }
 
-#clock {
+#clock.time {
+  padding-left:5px;
+  padding-right:5px;
+  margin-right:5px;
   color: @sky;
+}
+
+#clock.date {
+  padding-left:5px;
+  padding-right:5px;
+  color: @mauve;
 }
 
 #memory {
@@ -279,6 +303,15 @@ window#waybar.fullscreen #window {
 
 #custom-arch {
   color: @blue;
+}
+
+#temperature {
+    padding-left:5px;
+    padding-right:5px;
+}
+
+#temperature.critical {
+    color: red;
 }
 
 /*tooltips styling*/
