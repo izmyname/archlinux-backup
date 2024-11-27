@@ -10,7 +10,6 @@
     "margin-right": 10,
     "modules-left": [
         "custom/arch",
-	      "group/launch",
         "hyprland/workspaces",
         "hyprland/window"
             ],
@@ -29,17 +28,6 @@
     // -------------------------------------------------------------------------
     // Module Groups
     // -------------------------------------------------------------------------
-
-"group/launch": {
-  "orientation": "inherit",
-    "modules": [
-       "custom/terminal",
-       "custom/browser",
-       "custom/launcher",
-       "custom/filemanager",
-       "custom/fzmp"
-    ],
-  },
 
 "group/hardware": {
 	"orientation": "inherit",
@@ -226,41 +214,6 @@
 "custom/arch": {
       "format": "",
       "tooltip": false,
-    },       
-
-"custom/terminal": {
-      "format": "",
-      "tooltip": true,
-      "tooltip-format": "Launch Terminal Emulator",
-      "on-click": "$TERMINAL"
-    },       
-
-"custom/browser": {
-      "format": "󰖟",
-      "tooltip": true,
-      "tooltip-format": "Launch Web Browser",
-      "on-click": "$BROWSER"
-    },       
-
-"custom/launcher": {
-      "format": "󱓞",
-      "tooltip": true,
-      "tooltip-format": "Launch Application Launcher",
-      "on-click": "fuzzel"
-    },       
-
-"custom/filemanager": {
-      "format": "󱞊",
-      "tooltip": true,
-      "tooltip-format": "Launch File Manager",
-      "on-click": "$TERMINAL -T nnn $HOME/.local/bin/nwrap"
-    },       
-
-"custom/fzmp": {
-      "format": "",
-      "tooltip": true,
-      "tooltip-format": "Launch MPD-FZF script",
-      "on-click": "$TERMINAL -T fzmp $HOME/.local/bin/fzmp"
     },       
 
 "custom/hide-tray": {

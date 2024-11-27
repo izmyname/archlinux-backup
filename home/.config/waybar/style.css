@@ -285,36 +285,6 @@ window#waybar.fullscreen #window {
   color: @maroon;
 }
 
-#custom-terminal {
-  padding-left: 5px;
-  padding-right: 5px;
-  color: @mauve;
-}
-
-#custom-browser {
-  padding-left: 5px;
-  padding-right: 5px;
-  color: @teal;
-}
-
-#custom-launcher {
-  padding-left: 5px;
-  padding-right: 5px;
-  color: @flamingo;
-}
-
-#custom-filemanager {
-  padding-left: 5px;
-  padding-right: 5px;
-  color: @sky;
-}
-
-#custom-fzmp {
-  padding-left: 5px;
-  padding-right: 5px;
-  color: @rosewater;
-}
-
 /*tooltips styling*/
 tooltip {
      border-radius: 10px;
