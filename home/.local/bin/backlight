@@ -1,0 +1,47 @@
+#!/usr/bin/sh
+
+# get brightness
+get_backlight() {
+  LIGHT=$( brightnessctl | sed -n 's/.* (\([0-9]*\)%).*/\1/p')
+	echo "${LIGHT}"
+}
+
+# Get icons
+get_icon() {
+	current="$(get_backlight)"
+	if [[ ("$current" -ge "0") && ("$current" -le "40") ]]; then
+		icon="notification-display-brightness-low"
+	elif [[ ("$current" -ge "40") && ("$current" -le "70") ]]; then
+		icon="notification-display-brightness-medium"
+	elif [[ ("$current" -ge "70") && ("$current" -le "90") ]]; then
+		icon="notification-display-brightness-high"
+	elif [[ ("$current" -ge "90") && ("$current" -le "100") ]]; then
+		icon="notification-display-brightness-full"
+	fi
+}
+
+# notify
+notify_user() {
+	notify-send -h string:x-canonical-private-synchronous:sys-notify -u low -i "$icon" "backlight" "brightness: $(get_backlight)%"
+}
+
+# increase brightness
+inc_backlight() {
+	brightnessctl s +10% && get_icon && notify_user
+}
+
+# decrease brightness
+dec_backlight() {
+	brightnessctl s 10%- && get_icon && notify_user
+}
+
+# execute accordingly
+if [[ "$1" == "--get" ]]; then
+	get_backlight
+elif [[ "$1" == "--inc" ]]; then
+	inc_backlight
+elif [[ "$1" == "--dec" ]]; then
+	dec_backlight
+else
+	get_backlight
+fi

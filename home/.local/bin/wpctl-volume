@@ -1,0 +1,119 @@
+#!/usr/bin/sh
+
+# get volume
+get_volume() {
+	volume=$(wpctl get-volume @DEFAULT_SINK@ | awk '{gsub(/\./, ""); print $2}')
+  volume=$(echo "$volume" | sed 's/^0//')
+	echo "$volume"
+}
+
+# get icons
+get_icon() {
+	current=$(get_volume)
+  current=$(echo "$current" | sed 's/^0//')
+	if [[ "$current" -eq "0" ]]; then
+		echo "notification-audio-volume-muted"
+	elif [[ ("$current" -ge "0") && ("$current" -le "40") ]]; then
+		echo "notification-audio-volume-low"
+	elif [[ ("$current" -ge "40") && ("$current" -le "70") ]]; then
+		echo "notification-audio-volume-medium"
+	elif [[ ("$current" -ge "70") && ("$current" -le "100") ]]; then
+		echo "notification-audio-volume-high"
+	fi
+}
+
+# notify
+notify_user() {
+	notify-send -h string:x-canonical-private-synchronous:sys-notify -u low -i "$(get_icon)" "wireplumber" "volume:$(get_volume)%"
+}
+
+# increase volume
+inc_volume() {
+	 wpctl set-volume -l 1.0 @DEFAULT_SINK@ 0.05+ && notify_user
+}
+
+# decrease volume
+dec_volume() {
+	 wpctl set-volume @DEFAULT_SINK@ 0.05- && notify_user
+}
+
+# toggle mute
+toggle_mute() {
+    mute_status=$(wpctl get-volume @DEFAULT_SINK@ | grep -oP "MUTED" )
+
+    if [ "$mute_status" == "MUTED" ]; then
+      wpctl set-mute @DEFAULT_SINK@ 0 && notify-send -h string:x-canonical-private-synchronous:sys-notify -u low -i "$(get_icon)" "wireplumber" "volume:$(get_volume)%"
+    else
+        wpctl set-mute @DEFAULT_SINK@ 1 && notify-send -h string:x-canonical-private-synchronous:sys-notify -u low -i "notification-audio-volume-muted" "wireplumber" "muted"
+    fi
+}
+
+# get mic volume
+get_mic_volume() {
+	mic_volume=$(wpctl get-volume @DEFAULT_SOURCE@ | awk '{gsub(/\./, ""); print $2}')
+  mic_volume=$(echo "$mic_volume" | sed 's/^0//')
+	echo "$mic_volume"
+}
+
+# get icons
+get_mic_icon() {
+	current=$(wpctl get-volume @DEFAULT_SOURCE@ | awk '{gsub(/\./, ""); print $2}')
+  current=$(echo "$current" | sed 's/^0//')
+	if [[ "$current" -eq "0" ]]; then
+		echo "microphone-sensitivity-muted"
+	elif [[ ("$current" -ge "0") && ("$current" -le "30") ]]; then
+		echo "microphone-sensitivity-low"
+	elif [[ ("$current" -ge "30") && ("$current" -le "60") ]]; then
+		echo "microphone-sensitivity-medium"
+	elif [[ ("$current" -ge "60") && ("$current" -le "100") ]]; then
+		echo "microphone-sensitivity-high"
+	fi
+}
+# notify
+notify_mic_user() {
+	notify-send -h string:x-canonical-private-synchronous:sys-notify -u low -i "$(get_mic_icon)" "wireplumber" "microphone:$(get_mic_volume)%"
+}
+
+# increase mic volume
+inc_mic_volume() {
+	wpctl set-volume -l 1.0 @DEFAULT_SOURCE@ 0.05+ && notify_mic_user
+}
+
+# decrease mic volume
+dec_mic_volume() {
+	wpctl set-volume  @DEFAULT_SOURCE@ 0.05- && notify_mic_user
+}
+
+# toggle mic
+toggle_mic() {
+    mute_mic_status=$(wpctl get-volume @DEFAULT_SOURCE@ | grep -oP "MUTED" )
+
+    if [ "$mute_mic_status" == "MUTED" ]; then
+      wpctl set-mute @DEFAULT_SOURCE@ 0 && notify-send -h string:x-canonical-private-synchronous:sys-notify -u low -i "$(get_mic_icon)" "wireplumber" "microphone:$(get_mic_volume)%"
+    else
+        wpctl set-mute @DEFAULT_SOURCE@ 1 && notify-send -h string:x-canonical-private-synchronous:sys-notify -u low -i "microphone-sensitivity-muted" "wireplumber" "microphone muted"
+    fi
+}
+
+# execute accordingly
+if [[ "$1" == "--get" ]]; then
+	get_volume
+elif [[ "$1" == "--inc" ]]; then
+	inc_volume
+elif [[ "$1" == "--dec" ]]; then
+	dec_volume
+elif [[ "$1" == "--toggle" ]]; then
+	toggle_mute
+elif [[ "$1" == "--toggle-mic" ]]; then
+	toggle_mic
+elif [[ "$1" == "--get-icon" ]]; then
+	get_icon
+elif [[ "$1" == "--get-mic-icon" ]]; then
+	get_mic_icon
+elif [[ "$1" == "--mic-inc" ]]; then
+	inc_mic_volume
+elif [[ "$1" == "--mic-dec" ]]; then
+	dec_mic_volume
+else
+	get_volume
+fi

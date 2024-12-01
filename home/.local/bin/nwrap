@@ -1,0 +1,16 @@
+#!/usr/bin/sh
+
+#this is a wrapper script for nnn.
+
+source $HOME/.config/zshrc.d/nnn.zsh
+alias nsel="cat ${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.selection | tr '\0' '\n'"
+
+# To use a CLI opener, specify the `-c` option to `nnn`
+# export NNN_OPENER="${XDG_CONFIG_HOME:-$HOME/.config}/nnn/plugins/nuke"
+
+# Unmask ^Q (if required, see `stty -a`) to Quit nnn
+stty start undef
+stty stop undef
+
+# Start nnn with your preferred options
+nnn "$@"

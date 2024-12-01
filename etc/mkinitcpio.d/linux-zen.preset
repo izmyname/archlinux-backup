@@ -1,0 +1,8 @@
+# mkinitcpio preset file for the 'linux-zen' package
+
+ALL_kver="/boot/vmlinuz-linux-zen"
+
+PRESETS=('default')
+
+default_uki="/boot/EFI/Linux/arch-linux-zen.efi"
+default_options="--splash /usr/share/systemd/bootctl/splash-arch.bmp"

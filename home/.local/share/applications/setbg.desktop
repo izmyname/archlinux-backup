@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Change Wallpaper
+Comment=Script to change the currentwallpaper, using hyprpaper fzf and sixel
+Exec=-T setbg /home/arch-mage/.local/bin/setbg
+Terminal=true
+Icon=desktop
+Categories=Utility;DesktopSettings;;ConsoleOnly
