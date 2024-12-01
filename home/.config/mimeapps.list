@@ -1,0 +1,9 @@
+
+[Default Applications]
+image/jpeg=swayimg.desktop
+image/jpg=swayimg.desktop
+image/png=swayimg.desktop
+image/gif=swayimg.desktop
+image/svg=swayimg.desktop
+image/webp=swayimg.desktop
+image/bmp=swayimg.desktop

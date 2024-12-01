@@ -1,0 +1,13 @@
+hash -d mus=$XDG_MUSIC_DIR
+hash -d doc=$XDG_DOCUMENTS_DIR
+hash -d web=$XDG_DOWNLOAD_DIR
+hash -d pic=$XDG_PICTURES_DIR
+hash -d vid=$XDG_VIDEOS_DIR
+hash -d cfg=$HOME/.config
+hash -d loc=$HOME/.local/share
+hash -d mtp=/run/user/1000/gvfs
+hash -d ext=/run/media
+hash -d opt=$HOME/.local/opt
+hash -d zsh=$HOME/.config/zshrc.d
+hash -d hypr=$HOME/.config/hypr
+hash -d bgs=$HOME/.local/share/backgrounds

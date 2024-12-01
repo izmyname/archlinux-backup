@@ -1,0 +1,11 @@
+catppuccin-cursors-mocha
+downgrade
+hyprland-meta-git
+mpd-notification
+mullvad-vpn-bin
+networkmanager-dmenu-git
+nnn-git
+poweralertd
+tty-clock
+uwsm
+yay

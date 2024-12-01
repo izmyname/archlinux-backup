@@ -1,0 +1,22 @@
+
+
+font=Fira Code 12
+width=350
+height=3500
+padding=10
+max-history=30
+margin=20
+border-size=1
+border-radius=10
+default-timeout=5000
+layer=overlay
+icons=1
+icon-path=/usr/share/icons/Papirus-Dark
+background-color=#1e1e2eb3
+text-color=#cdd6f4
+border-color=#89b4fa
+progress-color=over #313244
+on-button-middle=exec makoctl menu fuzzel --dmenu -p 'action >'
+
+[urgency=high]
+border-color=#fab387

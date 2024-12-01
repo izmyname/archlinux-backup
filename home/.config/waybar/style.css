@@ -1,0 +1,279 @@
+@import "mocha.css";
+
+/* The whole bar */
+#waybar {
+    border-radius: 10px;
+    background: transparent;
+    text-shadow: 1px 1px @crust;
+    color: @text;
+    font-family: Fira Code, FiraCode Nerd Font Propo;
+    font-feature-settings: '"zero", "ss01", "ss02", "ss03", "ss04", "ss05", "cv31"';
+    font-size: 16px;
+}
+
+/* All modules */
+#custom-arch,
+#hardware,
+#hardware2,
+#indicators,
+#connect,
+#time,
+#window,
+#wireplumber,
+#workspaces,
+#language,
+#tray {
+  border-radius: 10px;
+  background-color: alpha(@base, 0.8);
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-right: 10px;
+}
+
+/* Module styling */
+#time {
+      font-size: 14px;
+}
+
+#indicators {
+      font-size: 14px;
+}
+
+#hardware {
+      font-size:14px;
+      color: @pink;
+}
+
+#hardware2 {
+      padding-left:5px;
+      padding-right:5px;
+      font-size:14px;
+      color: @mauve;
+}
+
+#backlight {
+    padding-left:8px;
+    padding-right:5px;
+}
+
+#backlight.medium {
+     color: @peach;
+}
+
+#backlight.max {
+     color: @yellow;
+}
+
+#bluetooth {
+  padding-left:5px;
+  padding-right:5px;
+}
+
+#bluetooth.connected {
+   color: @blue;
+}
+
+#bluetooth.disabled {
+   color: grey;
+}
+
+#cpu {
+    padding-left:5px;
+    padding-right:5px;
+}
+
+#cpu.loaded {
+    color: @sapphire;
+}
+
+#cpu.warning {
+    color: @peach;
+}
+
+#cpu.critical {
+    color: @red;
+}
+
+#disk {
+    padding-left:5px;
+    padding-right:5px;
+}
+
+#disk.half {
+  color: @sapphire;
+}
+
+#disk.three-quarters {
+  color: @peach;
+}
+
+#disk.full {
+  color: @red;
+}
+
+#language {
+ color: @teal;
+}
+
+#clock.time {
+  padding-left:5px;
+  padding-right:5px;
+  margin-right:5px;
+  color: @sky;
+}
+
+#clock.date {
+  padding-left:5px;
+  padding-right:5px;
+  color: @mauve;
+}
+
+#memory {
+    padding-left:5px;
+    padding-right:5px;
+}
+
+#memory.loaded {
+    color: @sapphire;
+}
+
+#memory.warning {
+    color: @peach;
+}
+
+#memory.critical {
+    color: @red;
+}
+
+#network {
+    padding-left:5px;
+    padding-right:5px;
+    color: @rosewater;
+}
+
+#network.disconnected {
+    color: grey;
+}
+
+#wireplumber {
+    /* No styles */
+}
+
+#wireplumber.loud {
+     color: @red;
+}
+
+#wireplumber.optimal {
+     color: @green;
+}
+
+#wireplumber.muted {
+     color: grey;
+ }
+
+#tray {
+     margin-right: 10px;
+}
+
+#window {
+    border: none;	
+    color: transparent;
+    background-color: transparent;
+    text-shadow: none;
+}
+
+window#waybar.fullscreen #window {
+   color: @yellow;
+   background-color: alpha (@base, 0.8);
+   text-shadow: none;
+}
+
+#workspaces button {
+    border-radius: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+    color: @text;
+    text-shadow: 1px 1px @crust;
+}
+
+#workspaces button.active {
+    border-radius: 10px;
+    margin-top: 2px;    
+    margin-bottom: 2px; 
+    border-color: @text;
+    color: @base;
+    background-color: @text; 
+    text-shadow: none;
+}
+
+#workspaces button.urgent {
+    border-radius: 10px;
+    margin-top: 2px;    
+    margin-bottom: 2px; 
+    border-color: @peach;
+    color: @base;
+    background-color: @red;
+    text-shadow: none;
+}
+
+#workspaces button.special {
+    border-radius: 10px;
+    margin-left:5px;
+    margin-top: 2px;    
+    margin-bottom: 2px; 
+    border-color: @text;
+    color: @base;
+    background-color: @lavender; 
+    text-shadow: none;
+}
+
+#temperature {
+    padding-left:5px;
+    padding-right:5px;
+}
+
+#temperature.critical {
+    color: @red;
+}
+
+#upower {
+   padding-left:5px;
+   padding-right:5px;
+}
+
+#upower.charging {
+   color: @sky;
+}
+
+#upower.full {
+   color: @green;
+}
+
+#upower.empty {
+   color: @red;
+}
+
+#custom-arch {
+  color: @blue;
+}
+
+/* Tooltips styling */
+tooltip {
+     border-radius: 10px;
+     background-color: alpha (@base, 0.6);
+}
+
+tooltip label {
+  color: @text;
+}
+
+menu {
+	border-radius: 10px;
+	background: alpha (@base, 0.6);
+	color: @text;
+}
+menuitem {
+	border-radius: 10px;
+}

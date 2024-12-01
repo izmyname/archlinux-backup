@@ -1,0 +1,26 @@
+#!/bin/sh
+
+dmenu='fuzzel --dmenu --width 25 --lines 5 -p'
+options=" Lock Screen\n󰍃 Logout\n󰒲 Suspend\n Reboot\n⏻ Shutdown"
+
+chosen=$(echo -e "$options" | $dmenu " $USER >")
+case $chosen in
+"⏻ Shutdown")
+  systemctl poweroff
+  ;;
+" Reboot")
+  systemctl reboot
+  ;;
+" Lock Screen")
+  loginctl lock-session
+  ;;
+"󰍃 Logout")
+  loginctl terminate-user $USER
+  ;;
+"󰒲 Suspend")
+  systemctl suspend
+  ;;
+*)
+  exit 0
+  ;;
+esac

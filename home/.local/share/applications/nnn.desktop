@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=nnn (wrapper)
+Comment=Terminal file manager
+Exec=-T nnn /home/arch-mage/.local/bin/nwrap
+Terminal=true
+Icon=nnn
+MimeType=inode/directory
+Categories=System;FileTools;FileManager;ConsoleOnly
+Keywords=File;Manager;Management;Explorer;Launcher

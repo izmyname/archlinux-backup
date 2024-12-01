@@ -1,0 +1,13 @@
+#!/usr/bin/sh
+
+#Temporary script to toggle hyprsunset, untill we get ipc.
+
+if pgrep -x 'hyprsunset' >/dev/null; then
+  killall -e hyprsunset
+  brightnessctl -r
+  notify-send -h string:x-canonical-private-synchronous:sys-notify -u low -i sunflower "hyprsunset" "nightlight is off"
+else
+  hyprsunset -t 3500 &
+  brightnessctl -s set 50%
+  notify-send -h string:x-canonical-private-synchronous:sys-notify -u low -i redshift "hyprsunset" "nightlight is on"
+fi

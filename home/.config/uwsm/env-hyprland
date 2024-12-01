@@ -1,0 +1,3 @@
+export AQ_DRM_DEVICES=/dev/dri/card1         #lspci | \grep -E 'VGA|3D', then ls -l /dev/dri/by-path
+export HYPRCURSOR_THEME=catppuccin-mocha-dark
+export HYPRCURSOR_SIZE=24

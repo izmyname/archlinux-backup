@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=fzmp
+Comment=Fuzzy script to browse and select songs from MPD database
+Exec=-T fzmp /home/arch-mage/.local/bin/fzmp
+Terminal=true
+Icon=new-audio-alarm
+Categories=Music;MPD;Player;ConsoleOnly
+Keywords=MPD;Music;Explorer;
