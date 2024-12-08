@@ -114,7 +114,7 @@ ignoregroup='xorg cowsay'
 paralleldownloads='5'
 
 ### options
-sed -i '/^# Misc options/ a ILoveCandy' "$f" #enable an easter egg
+sed -i "/^# Misc options/ a ILoveCandy" "$f" #enable an easter egg
 #sed -i "s/^#IgnorePkg/IgnorePkg/; /IgnorePkg/ s/$/ ${ignorepkg}/" "$f"                                    #ignore packages
 #sed -i "s/^#IgnoreGroup/IgnoreGroup/; /IgnoreGroup/ s/$/ ${ignoregroup}/" "$f"                            #ignore package groups
 sed -i "s/^#Color/Color/" "$f"                                                                             #colored output

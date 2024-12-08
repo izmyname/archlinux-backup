@@ -24,6 +24,7 @@ AddPackage hunspell-en_us       # US English hunspell dictionaries
 AddPackage hunspell-ru          # Russian dictionary for Hunspell
 AddPackage inxi                 # Full featured CLI system information tool
 AddPackage jq                   # Command-line JSON processor
+AddPackage lazygit              # TUI for git commands, needed by LazyVim
 AddPackage libqalculate         # Multi-purpose desktop calculator
 AddPackage lsd                  # Modern ls with a lot of pretty colors and awesome icons
 AddPackage lsscsi               # A tool that lists devices connected via SCSI and its transports
