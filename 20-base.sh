@@ -125,6 +125,10 @@ sed -i "s/^#ParallelDownloads.*/ParallelDownloads =/; /ParallelDownloads/ s/$/ $
 #sed -i "/\[core-testing\]/,/Include/"'s/^#//' "$f"
 #sed -i "/\[extra-testing\]/,/Include/"'s/^#//' "$f"
 
+### enable multilib
+#sed -i "/\[multilib-testing\]/,/Include/"'s/^#//' "$f"
+#sed -i "/\[multilib\]/,/Include/"'s/^#//' "$f"
+
 ### append to pacman.conf
 cat >>"$(GetPackageOriginalFile --no-clobber pacman /etc/pacman.conf)" <<EOF
 
