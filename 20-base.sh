@@ -1,4 +1,4 @@
-## install
+# packages
 AddPackage --foreign aconfmgr-git # A configuration manager for Arch Linux
 AddPackage base                   # Minimal package set to define a basic Arch Linux installation
 AddPackage base-devel             # Basic tools to build Arch Linux packages
@@ -37,9 +37,9 @@ AddPackage --foreign yay          # Yet another yogurt. Pacman wrapper and AUR h
 # ucode
 AddPackage intel-ucode # Microcode update files for Intel CPUs
 
-## configuration
+# configuration
 
-#set variables
+## set variables
 UUID='02382d5a-8258-48af-8b13-87cc7fbe7157' # needed for kernel cmdline
 username='arch-mage'                        #username of an unprivileged user. Needed for partial autologin
 #(useradd -m -G wheel,network,video,audio -s /usr/bin/zsh $username passwd $username)
@@ -87,10 +87,13 @@ rw quiet bgrt_disable
 EOF
 
 # mkinitcpio
+
+### add hooks
 cat >"$(CreateFile /etc/mkinitcpio.conf.d/30-hooks.conf)" <<EOF
 HOOKS=(systemd autodetect microcode modconf keyboard sd-vconsole block sd-encrypt filesystems)
 EOF
 
+### configure linux-zen preset to create Unified Kernel Image
 cat >"$(CreateFile /etc/mkinitcpio.d/linux-zen.preset)" <<EOF
 # mkinitcpio preset file for the 'linux-zen' package
 
@@ -100,6 +103,32 @@ PRESETS=('default')
 
 default_uki="/boot/EFI/Linux/arch-linux-zen.efi"
 default_options="--splash /usr/share/systemd/bootctl/splash-arch.bmp"
+EOF
+
+# pacman
+f="$(GetPackageOriginalFile pacman /etc/pacman.conf)"
+
+### set variables for easier editing
+ignorepkg='spdlog waybar'
+ignoregroup='xorg cowsay'
+paralleldownloads='5'
+
+### options
+sed -i '/^# Misc options/ a ILoveCandy' "$f" #enable an easter egg
+#sed -i "s/^#IgnorePkg/IgnorePkg/; /IgnorePkg/ s/$/ ${ignorepkg}/" "$f"                                    #ignore packages
+#sed -i "s/^#IgnoreGroup/IgnoreGroup/; /IgnoreGroup/ s/$/ ${ignoregroup}/" "$f"                            #ignore package groups
+sed -i "s/^#Color/Color/" "$f"                                                                             #colored output
+sed -i "s/^#VerbosePkgLists/VerbosePkgLists/" "$f"                                                         #some verbosity
+sed -i "s/^#ParallelDownloads.*/ParallelDownloads =/; /ParallelDownloads/ s/$/ ${paralleldownloads}/" "$f" #parallell downloads
+
+###  enable testing repos
+#sed -i "/\[core-testing\]/,/Include/"'s/^#//' "$f"
+#sed -i "/\[extra-testing\]/,/Include/"'s/^#//' "$f"
+
+### append to pacman.conf
+cat >>"$(GetPackageOriginalFile --no-clobber pacman /etc/pacman.conf)" <<EOF
+
+### managed by aconfmgr
 EOF
 
 # disable webcam
@@ -141,7 +170,6 @@ EOF
 
 # copy configs
 CopyFile /etc/snapper/configs/root 640
-CopyFile /etc/pacman.conf
 CreateFile /etc/arptables.conf >/dev/null
 CreateFile /etc/ebtables.conf >/dev/null
 CopyFile /etc/conf.d/snapper

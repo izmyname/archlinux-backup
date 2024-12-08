@@ -1,4 +1,4 @@
-# install
+# packages
 AddPackage blueman     # GTK+ Bluetooth Manager
 AddPackage bluez-utils # Development and debugging utilities for the bluetooth protocol stack
 AddPackage tlp         # Linux Advanced Power Management

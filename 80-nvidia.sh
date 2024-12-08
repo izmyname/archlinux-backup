@@ -1,4 +1,4 @@
-# install
+# packages
 AddPackage nvidia-dkms   # NVIDIA kernel modules - module sources
 AddPackage nvidia-prime  # NVIDIA Prime Render Offload configuration and utilities
 AddPackage opencl-nvidia # OpenCL implemention for NVIDIA

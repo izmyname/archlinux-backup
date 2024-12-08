@@ -1,4 +1,4 @@
-# install
+# packages
 AddPackage aria2                # Download utility that supports HTTP(S), FTP, BitTorrent, and Metalink
 AddPackage alsa-firmware        # Firmware binaries for loader programs in alsa-tools and hotplug firmware loader
 AddPackage atool                # A script for managing file archives of various types
@@ -51,7 +51,7 @@ AddPackage whois                # Intelligent WHOIS client
 AddPackage yt-dlp               # A youtube-dl fork with additional features and fixes
 AddPackage --foreign nnn-git    # The fastest terminal file manager ever written.
 
-# enable services
+# systemd enable
 CreateLink /etc/systemd/system/multi-user.target.wants/ufw.service /usr/lib/systemd/system/ufw.service
 CreateLink /etc/systemd/system/sysinit.target.wants/haveged.service /usr/lib/systemd/system/haveged.service
 CreateLink /etc/systemd/system/timers.target.wants/paccache.timer /usr/lib/systemd/system/paccache.timer

@@ -1,4 +1,4 @@
-# install
+# packages
 AddPackage adobe-source-han-sans-cn-fonts # Adobe Source Han Sans Subset OTF - Simplified Chinese OpenType/CFF fonts
 AddPackage adobe-source-han-sans-jp-fonts # Adobe Source Han Sans Subset OTF - Japanese OpenType/CFF fonts
 AddPackage adobe-source-han-sans-kr-fonts # Adobe Source Han Sans Subset OTF - Korean OpenType/CFF fonts

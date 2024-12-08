@@ -1,4 +1,4 @@
-#install
+# packages
 AddPackage adw-gtk-theme                      # Unofficial GTK 3 port of the libadwaita theme
 AddPackage brightnessctl                      # Lightweight brightness control tool
 AddPackage chafa                              # Image-to-text converter supporting a wide range of symbols and palettes, transparency, animations, etc.
@@ -21,7 +21,7 @@ AddPackage swayimg                            # A lightweight image viewer for W
 AddPackage udiskie                            # Removable disk automounter using udisks
 AddPackage vkd3d                              # Direct3D 12 to Vulkan translation library By WineHQ
 AddPackage vulkan-tools                       # Vulkan Utilities and Tools
-AddPackage waybar                             # Highly customizable Wayland bar for Sway and Wlroots based compositors (GIT)
+AddPackage waybar                             # Highly customizable Wayland bar for Sway and Wlroots based compositors
 AddPackage xdg-desktop-portal-gtk             # A backend implementation for xdg-desktop-portal using GTK
 AddPackage --foreign catppuccin-cursors-mocha # Soothing pastel mouse cursors - Mocha
 AddPackage --foreign hyprland-meta-git        # Meta package to install Hyprland and all related utilities
@@ -32,6 +32,6 @@ AddPackage --foreign poweralertd              # UPower-powered power alerter
 AddPackage --foreign tty-clock                # Digital clock in ncurses
 AddPackage --foreign uwsm                     # A standalone Wayland session manager
 
-#systemd enable
+# systemd enable
 CreateLink /etc/systemd/system/mullvad-daemon.service.wants/mullvad-early-boot-blocking.service /usr/lib/systemd/system/mullvad-early-boot-blocking.service
 CreateLink /etc/systemd/system/multi-user.target.wants/mullvad-daemon.service /usr/lib/systemd/system/mullvad-daemon.service
