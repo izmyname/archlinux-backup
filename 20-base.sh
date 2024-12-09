@@ -173,10 +173,12 @@ cat >"$(CreateFile /etc/sudoers.d/wheel 640)" <<EOF
 %wheel ALL=(ALL:ALL) ALL
 EOF
 
-# copy configs
+# shadow
+SetFileProperty /usr/bin/groupmems group groups
+SetFileProperty /usr/bin/groupmems mode 2750
+
+# snapper
 CopyFile /etc/snapper/configs/root 640
-CreateFile /etc/arptables.conf >/dev/null
-CreateFile /etc/ebtables.conf >/dev/null
 CopyFile /etc/conf.d/snapper
 
 ## systemd overrides

@@ -33,6 +33,9 @@ AddPackage --foreign poweralertd              # UPower-powered power alerter
 AddPackage --foreign tty-clock                # Digital clock in ncurses
 AddPackage --foreign uwsm                     # A standalone Wayland session manager
 
+# mullvad
+SetFileProperty /usr/bin/mullvad-exclude mode 4755
+
 # systemd enable
 CreateLink /etc/systemd/system/mullvad-daemon.service.wants/mullvad-early-boot-blocking.service /usr/lib/systemd/system/mullvad-early-boot-blocking.service
 CreateLink /etc/systemd/system/multi-user.target.wants/mullvad-daemon.service /usr/lib/systemd/system/mullvad-daemon.service
