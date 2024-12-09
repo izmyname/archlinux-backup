@@ -19,6 +19,7 @@ AddPackage logrotate              # Rotates system logs automatically
 AddPackage linux-firmware         # Firmware files for Linux
 AddPackage linux-zen              # The Linux ZEN kernel and modules
 AddPackage linux-zen-headers      # Headers and scripts for building modules for the Linux ZEN kernel
+AddPackage luarocks               # Lazyvim needs it
 AddPackage neovim                 # Fork of Vim aiming to improve user experience, plugins, and GUIs
 AddPackage nfs-utils              # Support programs for Network File Systems
 AddPackage ntfs-3g                # NTFS filesystem driver and utilities
